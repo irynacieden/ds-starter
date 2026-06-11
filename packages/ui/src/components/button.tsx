@@ -16,12 +16,11 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: { variant: "solid", size: "md" },
-  }
+  },
 );
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {}
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {}
 
 export function Button({
   className,

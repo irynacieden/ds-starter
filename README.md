@@ -27,6 +27,8 @@ pnpm storybook              # → http://localhost:6006
 ```bash
 pnpm typecheck       # TS strict по всіх пакетах
 pnpm lint            # ESLint (+ jsx-a11y, react-hooks)
+pnpm format          # Prettier --write (+ сортування Tailwind-класів)
+pnpm format:check    # Prettier --check (як у CI)
 pnpm build-storybook # статична збірка (як у CI)
 ```
 
@@ -42,11 +44,10 @@ pnpm build-storybook # статична збірка (як у CI)
 
 ## Перевірки (checks)
 
-- **TS strict** (per package) · **ESLint** (typescript + react-hooks + jsx-a11y) · **Storybook a11y addon** (`a11y.test: error`).
-- **CI** (`.github/workflows/ci.yml`): install → typecheck → lint → build-storybook.
+- **TS strict** (per package) · **ESLint** (typescript + react-hooks + jsx-a11y) · **Prettier** (+ Tailwind class-sort) · **Storybook a11y addon** (`a11y.test: error`).
+- **Git hooks** (husky): `pre-commit` → lint-staged (eslint --fix + prettier на staged); `pre-push` → typecheck. Ставляться автоматично на `pnpm install` (`prepare`).
+- **CI** (`.github/workflows/ci.yml`): install → format:check → typecheck → lint → build-storybook.
 - `dist`/`node_modules`/`storybook-static` — у `.gitignore` (артефакти не комітимо).
-
-Свідомо **без** 700 рядків bash-перевірок зі старого проєкту — turborepo + ESLint + TS покривають те саме простіше.
 
 ## Як використати як шаблон
 

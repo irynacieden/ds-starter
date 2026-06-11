@@ -8,24 +8,20 @@ import { cn } from "../lib/utils";
  *
  * Stock-status мапиться так: In stock → success · Low → warning · Out → destructive.
  */
-const badgeVariants = cva(
-  "inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium",
-  {
-    variants: {
-      tone: {
-        info: "bg-info-surface text-info-foreground",
-        success: "bg-success-surface text-success-foreground",
-        warning: "bg-warning-surface text-warning-foreground",
-        destructive: "bg-destructive-surface text-destructive-foreground",
-      },
+const badgeVariants = cva("inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium", {
+  variants: {
+    tone: {
+      info: "bg-info-surface text-info-foreground",
+      success: "bg-success-surface text-success-foreground",
+      warning: "bg-warning-surface text-warning-foreground",
+      destructive: "bg-destructive-surface text-destructive-foreground",
     },
-    defaultVariants: { tone: "info" },
-  }
-);
+  },
+  defaultVariants: { tone: "info" },
+});
 
 export interface BadgeProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
-    VariantProps<typeof badgeVariants> {}
+  extends React.HTMLAttributes<HTMLSpanElement>, VariantProps<typeof badgeVariants> {}
 
 export function Badge({ className, tone, ...props }: BadgeProps): React.ReactElement {
   return <span className={cn(badgeVariants({ tone }), className)} {...props} />;

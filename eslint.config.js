@@ -14,5 +14,5 @@ export default tseslint.config(
       ...reactHooks.configs.recommended.rules,
       ...jsxA11y.configs.recommended.rules,
     },
-  }
+  },
 );
