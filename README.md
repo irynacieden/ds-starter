@@ -34,7 +34,9 @@ pnpm build-storybook # статична збірка (як у CI)
 
 ## Демо «поширення» (для воркшопу)
 
-Відкрий `packages/tokens/src/tokens.css`, зміни `--warning` → онови Storybook. **Усі** warning-badge змінились одразу — бо вони вживають токен, а не хардкод. Один правок → скрізь.
+Відкрий `packages/tokens/src/tokens.css`, зміни один семантичний токен (напр. `--warning-foreground` або `--radius`) → онови Storybook. **Усі** інстанси змінились одразу — бо вони вживають токен, а не хардкод. Один правок → скрізь.
+
+> Повний план демо + як перенести ці токени у Figma Variables (Light/Dark) — `docs/workshop-figma-plan.md`.
 
 ## Як додати компонент
 
